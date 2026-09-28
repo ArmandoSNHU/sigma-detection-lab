@@ -1,0 +1,8 @@
+{"EventID": 4624, "product": "windows", "service": "security", "TargetUserName": "alice", "LogonType": 2}
+{"EventID": 4625, "product": "windows", "service": "security", "TargetUserName": "bob", "IpAddress": "10.0.0.5", "LogonType": 3}
+{"EventID": 4625, "product": "windows", "service": "security", "TargetUserName": "administrator", "IpAddress": "10.0.0.5", "LogonType": 3}
+{"product": "windows", "service": "sysmon", "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "CommandLine": "powershell.exe -NoProfile -EncodedCommand SQBFAFgAIAAoAA==", "User": "corp\\svc_deploy"}
+{"product": "windows", "service": "sysmon", "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "CommandLine": "powershell.exe -File C:\\ops\\update-inventory.ps1", "User": "corp\\alice"}
+{"EventID": 4720, "product": "windows", "service": "security", "TargetUserName": "svc_backup", "SubjectUserName": "administrator"}
+{"product": "windows", "service": "sysmon", "Image": "C:\\Windows\\System32\\cmd.exe", "CommandLine": "cmd.exe /c dir C:\\Users", "User": "corp\\alice"}
+{"EventID": 4634, "product": "windows", "service": "security", "TargetUserName": "alice", "LogonType": 2}

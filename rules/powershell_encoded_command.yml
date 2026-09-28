@@ -1,0 +1,23 @@
+title: Suspicious PowerShell Encoded Command
+id: b3d9f47e-6a15-4c92-8e3d-0c2b4a6f8d10
+status: experimental
+description: >
+  Detects PowerShell launched with an encoded command payload
+  (-EncodedCommand / -enc). Base64-encoded command lines are a common way
+  to obfuscate malicious scripts and evade simple string-based controls.
+author: Armando Gomez
+level: high
+tags:
+  - attack.t1059.001
+  - attack.execution
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection_image:
+    Image|endswith: \powershell.exe
+  selection_flag:
+    CommandLine|contains: -enc
+  condition: selection_image and selection_flag
+falsepositives:
+  - Rare legitimate automation that ships encoded commands

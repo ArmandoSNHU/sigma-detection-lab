@@ -1,0 +1,23 @@
+title: Multiple Failed Logons (Possible Brute Force)
+id: 8f6b2c1a-2d4e-4b7a-9c11-1f0a3d5e7b21
+status: experimental
+description: >
+  Flags Windows failed-logon events (EventID 4625). A single event is a
+  weak signal; correlating many 4625s from one source over a short window
+  indicates password guessing or brute force. Aggregation is performed by
+  the SIEM downstream -- this rule surfaces the individual candidate events.
+author: Armando Gomez
+level: medium
+tags:
+  - attack.t1110
+  - attack.credential_access
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4625
+  condition: selection
+falsepositives:
+  - Users mistyping passwords
+  - Service accounts with stale credentials after a rotation

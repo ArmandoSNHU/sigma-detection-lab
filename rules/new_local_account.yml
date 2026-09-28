@@ -1,0 +1,21 @@
+title: New Local Account Created
+id: c1e7a02b-9f38-4d61-8a4c-72b5e9d1f6a3
+status: experimental
+description: >
+  Detects creation of a local user account (EventID 4720). Attackers
+  create accounts to establish persistence; newly created accounts that
+  are then added to privileged groups warrant immediate review.
+author: Armando Gomez
+level: medium
+tags:
+  - attack.t1136.001
+  - attack.persistence
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4720
+  condition: selection
+falsepositives:
+  - Legitimate provisioning by IT or onboarding automation

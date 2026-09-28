@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sigmalab"
+version = "0.1.0"
+description = "A small detection-engineering lab: evaluate Sigma-style rules against log events, mapped to MITRE ATT&CK."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Armando Gomez" }]
+keywords = ["sigma", "detection-engineering", "mitre", "attack", "siem", "security"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Security",
+]
+dependencies = ["pyyaml>=6.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+sigmalab = "sigmalab.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["sigmalab*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
